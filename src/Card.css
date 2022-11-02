@@ -1,3 +1,8 @@
+img{
+    height: 200px;
+    width: 150px;
+}
+
 .back, .front{
     display: block;
     height: 200px;
