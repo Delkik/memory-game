@@ -11,6 +11,12 @@ class Card extends React.Component {
   handleClick = () => {
     this.setState(state => ({isFlipped: !state.isFlipped}));
   }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    // console.log(prevProps, this.props)
+    // console.log(prevState, this.state)
+    // console.log(snapshot, this.snapshot)
+  }
   
   render() {
     if(this.state.isFlipped === false) {
