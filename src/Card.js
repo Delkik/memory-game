@@ -17,7 +17,7 @@ class Card extends React.Component {
     // console.log(prevState, this.state)
     // console.log(snapshot, this.snapshot)
   }
-  
+
   render() {
     if(this.state.isFlipped === false) {
       return (
@@ -25,7 +25,10 @@ class Card extends React.Component {
       );
 		}
     return (
-      <div className='front' onClick={this.handleClick}>{this.props.cardText} </div>
+      <div className='front' onClick={this.handleClick}>
+        <img src={require("./images/"+`${this.props.cardText}`)} alt={"images/"+`${this.props.cardText}`}></img>
+        
+         </div>
     );
   }
 }

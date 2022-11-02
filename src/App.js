@@ -4,7 +4,7 @@ import Card from './Card'
 function App() {
 
   // Double the amount of cards
-  const cardVal = ["Card1", "Card2", "Card3", "Card4", "Card5", "Card6", "Card7", "Card8"];
+  const cardVal = ["borzoi.jpg", "capybara.png", "goose.jpg", "lemur.png", "macaw.png", "oriental-cat.jpg", "penguin.jpg", "shoebill.jpg"];
   const cardValues = cardVal.concat(cardVal)
 
   // shuffle cards
