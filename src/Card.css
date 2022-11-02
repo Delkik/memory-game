@@ -1,0 +1,14 @@
+.back, .front{
+    display: block;
+    height: 200px;
+    width: 150px;
+    border: solid 2px red;
+}
+
+.front {
+    background-color: lightblue;
+  }
+  
+.back {
+    background-color: black;
+}
