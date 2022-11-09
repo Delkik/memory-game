@@ -2,6 +2,8 @@
   text-align: center;
 }
 
+.app-header{}
+
 .card-grid {
   margin-top: 35px;
   display: grid;
