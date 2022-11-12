@@ -13,13 +13,14 @@ class Card extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.props.onChange) {
-      this.props.onChange({isFlipped: this.state.isFlipped, card: this.props.cardText});
+    console.log(prevState,this.state)
+    if (this.props.onChange && prevState.isFlipped!=this.state.isFlipped) {
+      this.props.onChange({isFlipped: this.state.isFlipped, card: this.props.cardText, index: this.props.idx});
     }
   }
 
   render() {
-    if(this.state.isFlipped === false) {
+    if(this.state.isFlipped === false && !this.props.correct.includes(this.props.cardText)) {
       return (
         <div className='back' onClick={this.handleClick}> </div>
       );
