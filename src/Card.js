@@ -13,9 +13,9 @@ class Card extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    // console.log(prevProps, this.props)
-    // console.log(prevState, this.state)
-    // console.log(snapshot, this.snapshot)
+    if (this.props.onChange) {
+      this.props.onChange({isFlipped: this.state.isFlipped, card: this.props.cardText});
+    }
   }
 
   render() {

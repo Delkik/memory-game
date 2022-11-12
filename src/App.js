@@ -5,9 +5,7 @@ import React from 'react';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {cards: ["borzoi.jpg", "capybara.png", "goose.jpg", "lemur.png", "macaw.png", "oriental-cat.jpg", "penguin.jpg", "shoebill.jpg","borzoi.jpg", "capybara.png", "goose.jpg", "lemur.png", "macaw.png", "oriental-cat.jpg", "penguin.jpg", "shoebill.jpg"]}
-    this.setState(state =>({cards: this.shuffle(this.state.cards)}))
-  
+    this.state = {cards: [], flippedCount: 0, flippedArr:[]}
   }
 
   // shuffle cards
@@ -24,19 +22,33 @@ class App extends React.Component {
   }
 
     
-    // Double the amount of cards
+  // Double the amount of cards
   cardVal = ["borzoi.jpg", "capybara.png", "goose.jpg", "lemur.png", "macaw.png", "oriental-cat.jpg", "penguin.jpg", "shoebill.jpg"];
   cardValues = this.cardVal.concat(this.cardVal)
 
   componentDidMount(){
-    this.handleClick()
+    this.setState(state =>({cards: this.shuffle(this.cardValues)}))
   }
 
   handleClick = () => {
     this.setState(state =>({cards: this.shuffle(this.state.cards)}))
   }
 
+  getData = (data) => {
+    if (data.isFlipped==true){
+      this.state.flippedCount += 1
+    }
+    
+    else{
+      this.state.flippedCount -= 1
+    }
+    console.log(data)
+
+  }
+
 render(){
+  
+
   return (
     <div className="App">
       <div className='app-header'>
@@ -46,7 +58,7 @@ render(){
       <div className="card-grid">{this.state.cards.map((item,idx)=>(
         
         
-          <Card key={idx} cardText={item}/>
+          <Card key={idx} cardText={item} onChange={this.getData}/>
         
         
         ))}
