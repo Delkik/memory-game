@@ -10,26 +10,27 @@ class Card extends React.Component {
 
   handleClick = () => {
     this.setState(state => ({isFlipped: !state.isFlipped}));
+
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log(prevState,this.state)
-    if (this.props.onChange && prevState.isFlipped!=this.state.isFlipped) {
-      this.props.onChange({isFlipped: this.state.isFlipped, card: this.props.cardText, index: this.props.idx});
+    // console.log(prevState,this.state)
+    if (this.props.onChange && prevState.isFlipped!==this.state.isFlipped) {
+      this.props.onChange({isFlipped: this.state.isFlipped, card: this.props.card});
     }
   }
 
   render() {
-    if(this.state.isFlipped === false && !this.props.correct.includes(this.props.cardText)) {
+    // console.log(this.props.flipped)
+    if(this.props.card.flipped === false && !this.props.card.matched) {
       return (
         <div className='back' onClick={this.handleClick}> </div>
       );
 		}
     return (
       <div className='front' onClick={this.handleClick}>
-        <img src={require("./images/"+`${this.props.cardText}`)} alt={"images/"+`${this.props.cardText}`}></img>
-        
-         </div>
+        <img src={require(`./images/${this.props.card.text}`)} alt={`images/${this.props.card.text}`}></img>
+      </div>
     );
   }
 }
